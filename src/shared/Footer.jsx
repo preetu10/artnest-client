@@ -6,7 +6,7 @@ const Footer = () => {
         <aside className="text-center lg:text-left pl-3 mx-auto">
          
           <p className="font-bold">
-          <a href="/" className="text-3xl lg:text-4xl text-black">Art<span className="text-[#A79277]">Nest</span></a>
+          <a href="/" className="text-3xl lg:text-4xl text-black">Art<span className="text-[#715329]">Nest</span></a>
              <br/><p className="mt-2 text-base">Where Every Artist Feels at Home</p>
           </p> 
           <p className="text-base">Copyright © 2024 - All right reserved</p>
