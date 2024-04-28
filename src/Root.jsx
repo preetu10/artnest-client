@@ -6,7 +6,7 @@ import { ToastContainer} from 'react-toastify';
 const Root = () => {
     return (
         <>
-        <div className="mx-auto max-w-7xl font-poppins">
+        <div className="mx-auto max-w-7xl font-poppins min-h-screen">
             <Navbar></Navbar>
             <Outlet></Outlet>
            

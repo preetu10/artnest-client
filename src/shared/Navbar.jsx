@@ -3,6 +3,7 @@ import { AuthContext } from "../context/AuthProvider";
 import { useContext } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Tooltip } from "react-tooltip";
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -22,10 +23,12 @@ const Navbar = () => {
       {user && (
         <>
           <li className="text-lg font-medium text-[#5f4726]">
-            <NavLink to={`/my-list/${user.email}`}>My Art & Craft List</NavLink>
+            <NavLink to={`/my-art-crafts/${user.email}`}>
+              My Art & Craft List
+            </NavLink>
           </li>
           <li className="text-lg font-medium text-[#5f4726] ">
-            <NavLink to={`/add-craft/${user.email}`}>Add Craft</NavLink>
+            <NavLink to={`/add-crafts/${user.email}`}>Add Craft</NavLink>
           </li>
         </>
       )}
@@ -107,9 +110,9 @@ const Navbar = () => {
         {user ? (
           <>
             <div className="dropdown dropdown-end ">
+              <a className="my-anchor-element-id">
               <button
-                className="btn-ghost tooltip tooltip-bottom rounded-full w-9 h-9 lg:w-12 lg:h-12"
-                data-tip={user.displayName}
+                className="btn-ghost  rounded-full w-9 h-9 lg:w-12 lg:h-12"
               >
                 <img
                   src={user?.photoURL}
@@ -118,6 +121,12 @@ const Navbar = () => {
                   alt="user"
                 />
               </button>
+              </a>
+              <Tooltip
+                anchorSelect=".my-anchor-element-id"
+                content={user.displayName}
+                place="bottom"
+              />
               <ul
                 tabIndex={0}
                 className="menu menu-sm dropdown-content mt-2 z-[1] p-2 bg-[#f3f0ec] shadow  rounded-box w-36"
@@ -125,7 +134,9 @@ const Navbar = () => {
                 <li className="p-2">
                   <button className="btn btn-ghost text-base font-medium text-black">
                     {" "}
-                    <Link to={`/profile/${user.displayName}`}>My Profile</Link>
+                    <Link to={`/user-profile/${user.displayName}`}>
+                      My Profile
+                    </Link>
                   </button>
                   <hr></hr>
                 </li>
