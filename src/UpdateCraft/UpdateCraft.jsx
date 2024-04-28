@@ -1,66 +1,61 @@
-import { useContext, useState } from "react";
-import { AuthContext } from "../context/AuthProvider";
+import { useState } from "react";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useNavigate } from "react-router-dom";
-const AddCraft = () => {
-  const { user } = useContext(AuthContext);
-  const [category, setCategory] = useState("");
-  const [customization, setCustomization] = useState("Yes");
-  const [stockStatus, setStockStatus] = useState("In Stock");
-  const navigate = useNavigate();
-  const handleAdd = (e) => {
-    e.preventDefault();
-    const item_name = e.target.item_name.value;
-    const item_photo = e.target.item_photo.value;
-    const item_price = e.target.item_price.value;
-    const item_rating = e.target.item_rating.value;
-    const item_description = e.target.item_description.value;
-    const item_processing_time = e.target.item_processing_time.value;
-    const name = user.displayName;
-    const email = user.email;
-    const item = {
-      item_name,
-      item_photo,
-      item_description,
-      item_processing_time,
-      item_price,
-      item_rating,
-      name,
-      email,
-      category,
-      customization,
-      stockStatus,
-    };
-    console.log(item);
-    fetch("http://localhost:5000/add-crafts", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(item),
-    })
-      .then((res) => res.json)
-      .then((data) => {
-        console.log(data);
-        toast.success("Added successfully");
-        navigate("/");
-      })
-      .catch((err) => {
-        console.log(err);
-        toast.error("Failed to add. Try again later");
-      });
-  };
-  return (
-    <div>
-      <h1 className="text-center text-3xl font-medium mt-8 mb-5 text-[#715329]">
-        Add Your Own Arts and Crafts
+const UpdateCraft = () => {
+   
+    const data=useLoaderData();
+    console.log(data);
+    const [category, setCategory] = useState(data.category);
+    const [customization, setCustomization] = useState(data.customization);
+    const [stockStatus, setStockStatus] = useState(data.stockStatus);
+    const navigate = useNavigate();
+    const handleUpdate=(e)=>{
+        e.preventDefault();
+        const item_name = e.target.item_name.value;
+        const item_photo = e.target.item_photo.value;
+        const item_price = e.target.item_price.value;
+        const item_rating = e.target.item_rating.value;
+        const item_description = e.target.item_description.value;
+        const item_processing_time = e.target.item_processing_time.value;
+        const name = data.name;
+        const email = data.email;
+        const item = {
+          item_name,
+          item_photo,
+          item_description,
+          item_processing_time,
+          item_price,
+          item_rating,
+          name,
+          email,
+          category,
+          customization,
+          stockStatus,
+        };
+        console.log(item);
+        fetch(`http://localhost:5000/update-craft/${data._id}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(item),
+        })
+          .then((res) => res.json)
+          .then((data) => {
+            console.log(data);
+            toast.success("Updated successfully");
+            navigate("/");
+          })
+          .catch((err) => {
+            console.log(err);
+            toast.error("Failed to update. Try again later");
+          });
+    }
+    return (
+        <div>
+            <h1 className="text-center text-3xl font-medium mt-8 mb-5 text-[#715329]">
+        Update Information of Your Craft
       </h1>
-      <p className="text-center px-4 text-base text-gray-500 font-medium mb-8 max-w-4xl mx-auto ">
-        Showcase your unique creations and share your artistic vision with the
-        world. Upload your paintings and drawings here, and inspire a community
-        of fellow art lovers and creators.
-      </p>
-
-      <form onSubmit={handleAdd} className="mx-auto">
+      <form onSubmit={handleUpdate} className="mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 px-5 items-stretch justify-center ">
           <div className="">
             <label className="label">
@@ -69,7 +64,7 @@ const AddCraft = () => {
             <input
               type="text"
               name="item_name"
-              placeholder="Enter the name of your item"
+              defaultValue={data.item_name}
               className="input input-bordered w-full"
               required
             />
@@ -81,7 +76,7 @@ const AddCraft = () => {
             <input
               type="text"
               name="item_photo"
-              placeholder="Enter the photoURL of your item"
+             defaultValue={data.item_photo}
               className="input input-bordered w-full"
               required
             />
@@ -114,7 +109,7 @@ const AddCraft = () => {
             <input
               type="number"
               name="item_price"
-              placeholder="Enter the price of your item"
+              defaultValue={data.item_price}
               className="input input-bordered w-full"
               required
             />
@@ -126,7 +121,7 @@ const AddCraft = () => {
             <input
               type="text"
               name="item_rating"
-              placeholder="Enter the rating of your item"
+             defaultValue={data.item_rating}
               className="input input-bordered w-full"
               required
             />
@@ -138,7 +133,7 @@ const AddCraft = () => {
             <input
               type="text"
               name="item_processing_time"
-              placeholder="Enter the processing time of your item"
+             defaultValue={data.item_processing_time}
               className="input input-bordered w-full"
               required
             />
@@ -150,7 +145,7 @@ const AddCraft = () => {
             <input
               type="email"
               name="email"
-              defaultValue={user.email}
+              defaultValue={data.email}
               className="input input-bordered w-full"
               disabled={true}
             />
@@ -162,7 +157,7 @@ const AddCraft = () => {
             <input
               type="text"
               name="name"
-              defaultValue={user.displayName}
+              defaultValue={data.name}
               className="input input-bordered w-full"
               disabled={true}
             />
@@ -236,7 +231,7 @@ const AddCraft = () => {
           </label>
           <textarea
             name="item_description"
-            placeholder="Write short description of your item"
+          defaultValue={data.item_description}
             className="textarea textarea-bordered textarea-md w-full "
           ></textarea>
         </div>
@@ -246,12 +241,12 @@ const AddCraft = () => {
             className="btn btn-ghost btn-wide my-5 text-center bg-[#715329] text-white text-lg"
             required
           >
-            Submit
+            Update
           </button>
         </div>
       </form>
-    </div>
-  );
+        </div>
+    );
 };
 
-export default AddCraft;
+export default UpdateCraft;

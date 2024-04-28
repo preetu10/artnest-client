@@ -12,6 +12,8 @@ import MyCrafts from "../MyCrafts/MyCrafts";
 import AddCraft from "../AddCraft/AddCraft";
 import PrivateRoutes from "./PrivateRoutes";
 import Profile from "../Profile/Profile";
+import UpdateCraft from "../UpdateCraft/UpdateCraft";
+import ViewCraft from "../ViewCraft/ViewCraft";
 const router = createBrowserRouter([
     {
       path: "/",
@@ -39,8 +41,10 @@ const router = createBrowserRouter([
           element:<AllArtCraft></AllArtCraft>
         },
         {
-          path:"/my-art-crafts/:email",
-          element:<PrivateRoutes><MyCrafts></MyCrafts></PrivateRoutes>
+          path:"/my-arts-crafts/:email",
+          element:<PrivateRoutes><MyCrafts></MyCrafts></PrivateRoutes>,
+          loader:({params})=>fetch(`http://localhost:5000/get-my-crafts/${params.email}`),
+          
         },
         {
           path:"/add-crafts/:email",
@@ -49,6 +53,15 @@ const router = createBrowserRouter([
         {
           path:"/user-profile/:name",
           element:<PrivateRoutes><Profile></Profile></PrivateRoutes>
+        },
+        {
+          path:"/update-craft/:id",
+          element:<PrivateRoutes><UpdateCraft></UpdateCraft></PrivateRoutes>,
+          loader:({params})=>fetch(`http://localhost:5000/update-craft-view/${params.id}`)
+        },
+        {
+          path:"/view-craft/:id",
+          element:<PrivateRoutes><ViewCraft></ViewCraft></PrivateRoutes>
         }
       ],
     },

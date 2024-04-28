@@ -23,7 +23,7 @@ const Navbar = () => {
       {user && (
         <>
           <li className="text-lg font-medium text-[#5f4726]">
-            <NavLink to={`/my-art-crafts/${user.email}`}>
+            <NavLink to={`/my-arts-crafts/${user.email}`}>
               My Art & Craft List
             </NavLink>
           </li>
