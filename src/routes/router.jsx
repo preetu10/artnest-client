@@ -38,7 +38,8 @@ const router = createBrowserRouter([
         },
         {
           path:"/all-arts-crafts",
-          element:<AllArtCraft></AllArtCraft>
+          element:<AllArtCraft></AllArtCraft>,
+          loader:()=>fetch("http://localhost:5000/get-all-crafts")
         },
         {
           path:"/my-arts-crafts/:email",
@@ -57,11 +58,12 @@ const router = createBrowserRouter([
         {
           path:"/update-craft/:id",
           element:<PrivateRoutes><UpdateCraft></UpdateCraft></PrivateRoutes>,
-          loader:({params})=>fetch(`http://localhost:5000/update-craft-view/${params.id}`)
+          loader:({params})=>fetch(`http://localhost:5000/craft-view/${params.id}`)
         },
         {
-          path:"/view-craft/:id",
-          element:<PrivateRoutes><ViewCraft></ViewCraft></PrivateRoutes>
+          path:"/craft-details/:id",
+          element:<PrivateRoutes><ViewCraft></ViewCraft></PrivateRoutes>,
+          loader:({params})=>fetch(`http://localhost:5000/craft-view/${params.id}`)
         }
       ],
     },

@@ -1,6 +1,8 @@
 import {  useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
-
+import Swal from "sweetalert2";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const MyCrafts = () => {
 
   const data = useLoaderData();
@@ -13,13 +15,32 @@ const MyCrafts = () => {
 
   const handleDelete=(id)=>{
     console.log(id);
-
-    const remaining=crafts.filter(craft =>craft._id !== id);
-    setCrafts(remaining);
-    setDisplayCrafts(remaining);
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+            fetch(`http://localhost:5000/delete-craft/${id}`,{
+                method: "DELETE",
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                console.log(data);
+                if(data.deletedCount>0){
+                   toast.success("Deleted successfully");
+                   const remaining=crafts.filter(craft =>craft._id !== id);
+                   setCrafts(remaining);
+                   setDisplayCrafts(remaining);
+                }
+            })
+        }
+      });
   }
-
-
 
   const handleFilter=(value)=>{
     let filteredCrafts=[];
@@ -35,14 +56,14 @@ const MyCrafts = () => {
 
   return (
     <div>
-      <h1 className="text-center text-3xl font-medium mt-8 mb-5 text-[#715329]">
+      <h1 className="text-center text-3xl font-medium mt-3 mb-5 text-[#715329]">
         My Arts and Crafts
       </h1>
       <p className="text-center px-4 text-base text-gray-500 font-medium mb-8 max-w-4xl mx-auto ">
         This collection is a curated showcase of handcrafted artistry, where
         every item tells a story of inspiration and dedication.
       </p>
-      <div className="text-right mb-20">
+      <div className="text-right mb-8">
         <div className="dropdown">
           <div
             tabIndex={0}
@@ -93,7 +114,7 @@ const MyCrafts = () => {
                 <hr></hr>
                 <div className="flex flex-col md:flex-row justify-start gap-2 md:gap-4 ">
                   <button className="rounded-2xl text-[#328EFF] font-base bg-[#328EFF26] md:py-2 md:px-3 py-1 px-2 md:mr-5 my-3">
-                    Price: {craft.item_price}
+                    Price: {craft.item_price} tk
                   </button>
                   <button className="rounded-2xl text-[#FFAC33] font-base bg-[#FFAC3326]  md:px-3 md:py-2 py-1 px-2  my-3">
                     Rating: {craft.item_rating}
