@@ -91,7 +91,7 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a href="/" className="btn btn-ghost text-3xl lg:text-4xl">
+        <a href="/" className="btn btn-ghost text-2xl md:text-4xl">
           Art<span className="text-[#715329] dark:text-white">Nest</span>
         </a>
       </div>
@@ -174,10 +174,10 @@ const Navbar = () => {
           </>
         ) : (
           <>
-            <button className="btn btn-ghost lg:ml-2 ml-1 mr-2 lg:mr-3  text-white font-medium bg-[#715329] lg:text-lg">
+            <button className="btn btn-ghost lg:ml-2 ml-1 mr-1 lg:mr-3  text-white font-medium bg-[#715329] text-sm lg:text-lg">
               <Link to="/login">Log In</Link>
             </button>
-            <button className="btn btn-ghost  text-white font-medium bg-[#715329] lg:text-lg">
+            <button className="btn btn-ghost  text-white font-medium bg-[#715329] text-sm lg:text-lg">
               <Link to="/register"> Register</Link>
             </button>
           </>
