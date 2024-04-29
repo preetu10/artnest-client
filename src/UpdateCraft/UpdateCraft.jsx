@@ -39,7 +39,7 @@ const UpdateCraft = () => {
           stockStatus,
         };
         console.log(item);
-        fetch(`http://localhost:5000/update-craft/${data._id}`, {
+        fetch(` https://artnest-server-mahfujas-projects.vercel.app/update-craft/${data._id}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(item),

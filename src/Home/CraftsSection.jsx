@@ -4,11 +4,10 @@ import Craft from "./Craft";
 const CraftsSection = () => {
   const [crafts, setCrafts] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/get-all-crafts")
+    fetch("https://artnest-server-mahfujas-projects.vercel.app/get-all-crafts")
       .then((res) => res.json())
       .then((data) => setCrafts(data.slice(0, 6)));
   }, []);
-  //console.log(crafts);
   return (
     <div>
       <h1 className="text-center text-3xl font-bold mt-3 mb-5 text-[#715329]">

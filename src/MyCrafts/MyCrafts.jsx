@@ -13,8 +13,6 @@ const MyCrafts = () => {
     setDisplayCrafts(crafts); // Update displayCrafts whenever crafts changes
   }, [crafts]);
 
-  
-
   const handleDelete=(id)=>{
     console.log(id);
     Swal.fire({
@@ -27,7 +25,7 @@ const MyCrafts = () => {
         confirmButtonText: "Yes, delete it!"
       }).then((result) => {
         if (result.isConfirmed) {
-            fetch(`http://localhost:5000/delete-craft/${id}`,{
+            fetch(` https://artnest-server-mahfujas-projects.vercel.app/delete-craft/${id}`,{
                 method: "DELETE",
             })
             .then(res=>res.json())
@@ -92,7 +90,7 @@ const MyCrafts = () => {
      {displayCrafts.map((craft, index) => {
         return (
           <div key={index}>
-            <div className="card  flex flex-col items-center md:card-side bg-base-100 shadow-2xl my-2">
+            <div className="card  flex flex-col items-center md:card-side bg-base-100 shadow-2xl my-2 dark:bg-white">
               <figure className=" md:w-1/2  my-4">
                 <img
                   src={craft.item_photo}

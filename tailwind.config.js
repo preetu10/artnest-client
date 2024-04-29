@@ -5,8 +5,13 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'base-color-navbar': '#5f4726',
+      },
+    },
   },
+  darkMode: 'class',
   plugins: [require("daisyui")],
 
     daisyui: {

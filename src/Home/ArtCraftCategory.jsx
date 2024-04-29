@@ -4,7 +4,7 @@ import Category from "./Category";
 const ArtCraftCategory = () => {
   const [category, setCategory] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/sub-category-detail")
+    fetch("https://artnest-server-mahfujas-projects.vercel.app/sub-category-detail")
       .then((res) => res.json())
       .then((data) => setCategory(data.slice(0, 6)));
   }, []);

@@ -17,21 +17,21 @@ const ViewCraft = () => {
           />
         </figure>
         <div className="card-body">
-          <h2 className="card-title text-3xl text-[#5f4726]">
+          <h2 className="card-title text-3xl text-base-color-navbar">
             {data.item_name}
           </h2>
-         <p className="font-medium text-[#5f4726] text-lg">Category: {data.category}</p>
-         <p className="font-medium text-[#5f4726] text-lg">Processing Time: {data.item_processing_time}</p>
-          <p className="text-[#5f4726] text-left text-lg mb-3">
+         <p className="font-medium text-base-color-navbar text-lg">Category: {data.category}</p>
+         <p className="font-medium text-base-color-navbar text-lg">Processing Time: {data.item_processing_time}</p>
+          <p className="text-base-color-navbar text-left text-lg mb-3">
                   {
                     data.customization==="Yes"?"Customizable":"Not Customizable"
                   }
                   </p>
-                  <p className="font-medium text-[#5f4726] text-lg">Sold By: {data.name}</p>  
+                  <p className="font-medium text-base-color-navbar text-lg">Sold By: {data.name}</p>  
           <p>{data.item_description}</p>
           <div className="card-actions justify-start mt-2">
-            <div className="badge badge-outline text-[#5f4726] text-lg px-4 py-4 ">Price: {data.item_price}</div>
-            <div className="badge badge-outline text-[#5f4726] text-lg px-4 py-4 ">Rating: {data.item_rating}</div>
+            <div className="badge badge-outline text-base-color-navbar text-lg px-4 py-4 ">Price: {data.item_price}</div>
+            <div className="badge badge-outline text-base-color-navbar text-lg px-4 py-4 ">Rating: {data.item_rating}</div>
           </div>
         </div>
       </div>

@@ -37,7 +37,7 @@ const AddCraft = () => {
       stockStatus,
     };
     console.log(item);
-    fetch("http://localhost:5000/add-crafts", {
+    fetch(" https://artnest-server-mahfujas-projects.vercel.app/add-crafts", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(item),

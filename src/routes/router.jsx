@@ -40,12 +40,12 @@ const router = createBrowserRouter([
         {
           path:"/all-arts-crafts",
           element:<AllArtCraft></AllArtCraft>,
-          loader:()=>fetch("http://localhost:5000/get-all-crafts")
+          loader:()=>fetch(" https://artnest-server-mahfujas-projects.vercel.app/get-all-crafts")
         },
         {
           path:"/my-arts-crafts/:email",
           element:<PrivateRoutes><MyCrafts></MyCrafts></PrivateRoutes>,
-          loader:({params})=>fetch(`http://localhost:5000/get-my-crafts/${params.email}`),
+          loader:({params})=>fetch(` https://artnest-server-mahfujas-projects.vercel.app/get-my-crafts/${params.email}`),
           
         },
         {
@@ -59,17 +59,17 @@ const router = createBrowserRouter([
         {
           path:"/update-craft/:id",
           element:<PrivateRoutes><UpdateCraft></UpdateCraft></PrivateRoutes>,
-          loader:({params})=>fetch(`http://localhost:5000/craft-view/${params.id}`)
+          loader:({params})=>fetch(` https://artnest-server-mahfujas-projects.vercel.app/craft-view/${params.id}`)
         },
         {
           path:"/craft-details/:id",
           element:<PrivateRoutes><ViewCraft></ViewCraft></PrivateRoutes>,
-          loader:({params})=>fetch(`http://localhost:5000/craft-view/${params.id}`)
+          loader:({params})=>fetch(` https://artnest-server-mahfujas-projects.vercel.app/craft-view/${params.id}`)
         },
         {
           path:"/categorized-crafts/:category",
           element:<CategorizedCrafts></CategorizedCrafts>,
-          loader:({params})=>fetch(`http://localhost:5000/category-crafts/${params.category}`)
+          loader:({params})=>fetch(` https://artnest-server-mahfujas-projects.vercel.app/category-crafts/${params.category}`)
 
         }
       ],
