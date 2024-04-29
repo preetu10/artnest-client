@@ -1,15 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const UpdateCraft = () => {
+
    
     const data=useLoaderData();
-    console.log(data);
     const [category, setCategory] = useState(data.category);
     const [customization, setCustomization] = useState(data.customization);
     const [stockStatus, setStockStatus] = useState(data.stockStatus);
     const navigate = useNavigate();
+
+    useEffect(() => {
+      document.title=`ArtNest-Update-${data.item_name}`
+    },[data]);
+
     const handleUpdate=(e)=>{
         e.preventDefault();
         const item_name = e.target.item_name.value;

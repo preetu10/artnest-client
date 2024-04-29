@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthProvider";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -9,6 +9,10 @@ const AddCraft = () => {
   const [customization, setCustomization] = useState("Yes");
   const [stockStatus, setStockStatus] = useState("In Stock");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title="ArtNest-Add-Art-and-Craft"
+  },[]);
   const handleAdd = (e) => {
     e.preventDefault();
     const item_name = e.target.item_name.value;

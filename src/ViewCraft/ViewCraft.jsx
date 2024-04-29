@@ -1,7 +1,11 @@
+import { useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
 
 const ViewCraft = () => {
     const data=useLoaderData();
+    useEffect(() => {
+      document.title=`ArtNest-${data.item_name}`
+    },[data]);
   return (
     <div className="max-w-4xl mx-auto mt-5">
       <div className="card bg-base-100 shadow-3xl">

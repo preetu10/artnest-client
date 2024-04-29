@@ -4,9 +4,28 @@ import { useContext } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Tooltip } from "react-tooltip";
+import { useEffect, useState } from "react";
 const Navbar = () => {
+
+  const [theme,setTheme]=useState(localStorage.getItem('theme')?localStorage.getItem('theme'):"light");
+  useEffect(()=>{
+      localStorage.setItem('theme',theme);
+      const localTheme = localStorage.getItem('theme');
+      document.querySelector('html').setAttribute('data-theme',localTheme);
+  },[theme])
+
+  const handleToggle=(e)=>{
+    if(e.target.checked){
+      setTheme("dark");
+    }
+    else{
+      setTheme("light");
+    }
+
+  }
   const { user, logout } = useContext(AuthContext);
   const navigate = useNavigate();
+
 
   const links = (
     <>
@@ -72,7 +91,7 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-3xl lg:text-4xl">
+        <a href="/" className="btn btn-ghost text-3xl lg:text-4xl">
           Art<span className="text-[#715329]">Nest</span>
         </a>
       </div>
@@ -85,7 +104,7 @@ const Navbar = () => {
           <input
             type="checkbox"
             className="theme-controller"
-            value="synthwave"
+            onChange={handleToggle}
           />
 
           {/* sun icon */}

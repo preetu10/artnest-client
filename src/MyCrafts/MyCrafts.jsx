@@ -4,14 +4,16 @@ import Swal from "sweetalert2";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const MyCrafts = () => {
-
   const data = useLoaderData();
   const [crafts, setCrafts] = useState(data);
   const [displayCrafts, setDisplayCrafts] = useState(crafts);
   console.log(crafts);
   useEffect(() => {
+    document.title="ArtNest-My-Crafts";
     setDisplayCrafts(crafts); // Update displayCrafts whenever crafts changes
   }, [crafts]);
+
+  
 
   const handleDelete=(id)=>{
     console.log(id);
@@ -106,7 +108,7 @@ const MyCrafts = () => {
             </div>
             
               <h2 className="card-title mb-2">{craft.item_name}</h2>
-                  <p className="text-[#131313CC] text-left text-lg mb-3">
+                  <p className=" text-left text-lg mb-3">
                   {
                     craft.customization==="Yes"?"Customizable":"Not Customizable"
                   }

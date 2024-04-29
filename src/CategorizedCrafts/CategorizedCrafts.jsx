@@ -1,10 +1,13 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import CategorizedCraftCard from "./CategorizedCraftCard";
+import { useEffect } from "react";
 
 const CategorizedCrafts = () => {
     const category=useParams();
     const data=useLoaderData();
-    //console.log(category,data);
+    useEffect(() => {
+      document.title=`ArtNest-${category.category}-Collection`
+    },[category.category]);
 
     return (
         <div>

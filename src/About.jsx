@@ -1,4 +1,9 @@
+import { useEffect } from "react";
+
 const About = () => {
+  useEffect(() => {
+    document.title="ArtNest-About Us"
+  },[]);
   return (
     <div>
       <div

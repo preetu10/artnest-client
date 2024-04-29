@@ -1,10 +1,12 @@
 /* eslint-disable no-unused-vars */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 
 const AllArtCraft = () => {
   const data = useLoaderData();
-  console.log(data);
+  useEffect(() => {
+    document.title="ArtNest-All-Arts-and-Crafts"
+  },[]);
   const [crafts, setCrafts] = useState(data);
   return (
     <div>
