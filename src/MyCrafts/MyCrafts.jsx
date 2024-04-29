@@ -112,7 +112,7 @@ const MyCrafts = () => {
                   }
                   </p>
                 <hr></hr>
-                <div className="flex flex-row justify-start gap-2 md:gap-4 ">
+                <div className="flex flex-row justify-start gap-2  ">
                   <button className="rounded-2xl text-[#328EFF] font-base bg-[#328EFF26] md:py-2 md:px-3 py-1 px-2 md:mr-5 my-3">
                     Price: {craft.item_price} tk
                   </button>
