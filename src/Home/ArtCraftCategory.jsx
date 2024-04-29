@@ -8,7 +8,6 @@ const ArtCraftCategory = () => {
       .then((res) => res.json())
       .then((data) => setCategory(data.slice(0, 6)));
   }, []);
-  //console.log(category)
   return (
     <div>
       <h1 className="text-center text-3xl font-bold mt-20 mb-5 text-[#715329]">
