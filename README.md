@@ -8,20 +8,9 @@ ArtNest is  a vibrant online platform dedicated to the celebration and sharing o
 - **Advanced Artwork Management**:  Artists can upload their paintings or drawings with detailed descriptions, categorize them for easy discovery, and update or delete their entries at any time, giving them complete control over how their work is presented and shared.
 - **Interactive Art Categories**: Users can explore artworks of various categories such as landscape, portrait, watercolor, charcoal, cartoon drawing, and oil painting from Artistic Category section. This feature allows them to easily navigate and discover specific types of art that align with their interests.
 - **Dynamic Viewing Experience**: All users can view and interact with the full range of artworks on the platform, including accessing detailed views of each piece, reading artist narratives, and viewing ratings and prices.
-- **User-Friendly Interface**:  Users can easily explore the whole website from any device securely and get acquainted with artistic knowledge. 
+- **User-Friendly Interface**:  Users can easily explore the whole website from any device securely and get acquainted with artistic knowledge.
 
-## Packages Used In The Website
-- Swiper Slider
-- React Toastify
-- React Proptypes
-- React Simple Typewriter
-- React Tooltip
-- React Icons
-- Firebase
-- MongoDB
-- SweetAlert2
-- Daisy UI
-- Tailwind CSS
+
 ## Selected Category:
 - Painting and Drawing 
 -- a. Landscape Painting: Mountain view canvas, Forest based Landscape painting, 
