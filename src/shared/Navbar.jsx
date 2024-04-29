@@ -14,7 +14,7 @@ const Navbar = () => {
         <NavLink to="/">Home</NavLink>
       </li>
       <li className="text-lg font-medium text-[#5f4726]">
-        <NavLink to="/about">About</NavLink>
+        <NavLink to="/about">About Us</NavLink>
       </li>
       <li className="text-lg font-medium text-[#5f4726]">
         <NavLink to="/all-arts-crafts">All Art & Crafts</NavLink>
