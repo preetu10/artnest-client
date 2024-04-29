@@ -14,6 +14,7 @@ import PrivateRoutes from "./PrivateRoutes";
 import Profile from "../Profile/Profile";
 import UpdateCraft from "../UpdateCraft/UpdateCraft";
 import ViewCraft from "../ViewCraft/ViewCraft";
+import CategorizedCrafts from "../CategorizedCrafts/CategorizedCrafts";
 const router = createBrowserRouter([
     {
       path: "/",
@@ -64,6 +65,12 @@ const router = createBrowserRouter([
           path:"/craft-details/:id",
           element:<PrivateRoutes><ViewCraft></ViewCraft></PrivateRoutes>,
           loader:({params})=>fetch(`http://localhost:5000/craft-view/${params.id}`)
+        },
+        {
+          path:"/categorized-crafts/:category",
+          element:<CategorizedCrafts></CategorizedCrafts>,
+          loader:({params})=>fetch(`http://localhost:5000/category-crafts/${params.category}`)
+
         }
       ],
     },
