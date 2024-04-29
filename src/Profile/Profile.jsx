@@ -4,7 +4,7 @@ import { AuthContext } from "../context/AuthProvider";
 const Profile = () => {
     const {user}=useContext(AuthContext);
     return (
-        <div className="hero  bg-orange-50 my-12 shadow-3xl shadow-[#cfa678] rounded-xl">
+        <div className="hero  bg-orange-50 my-12 shadow-2xl shadow-[#715329] rounded-xl">
         <div className="hero-content flex-col lg:flex-row gap-10">
           <img src={user.photoURL} className="w-[420px] h-[450px] rounded-xl shadow-3xl shadow-[#d2b99b]" />
           <div>

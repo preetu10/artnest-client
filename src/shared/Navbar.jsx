@@ -67,7 +67,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 z-[20] p-2 shadow bg-base-100 rounded-box w-52"
           >
             {links}
           </ul>
@@ -126,10 +126,11 @@ const Navbar = () => {
                 anchorSelect=".my-anchor-element-id"
                 content={user.displayName}
                 place="bottom"
+                className="z-[20]"
               />
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content mt-2 z-[1] p-2 bg-[#f3f0ec] shadow  rounded-box w-36"
+                className="menu menu-sm dropdown-content mt-2 z-[20] p-2 bg-[#f3f0ec] shadow  rounded-box w-36"
               >
                 <li className="p-2">
                   <button className="btn btn-ghost text-base font-medium text-black">
