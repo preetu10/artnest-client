@@ -86,19 +86,19 @@ const MyCrafts = () => {
         </div>
       </div>
 
-     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+     <div className="grid grid-cols-1 items-center px-2 md:grid-cols-2 gap-5">
      {displayCrafts.map((craft, index) => {
         return (
           <div key={index}>
-            <div className="card  flex flex-col md:card-side bg-base-100 shadow-2xl my-2">
-              <figure className=" w-1/2  my-4">
+            <div className="card  flex flex-col items-center md:card-side bg-base-100 shadow-2xl my-2">
+              <figure className=" md:w-1/2  my-4">
                 <img
                   src={craft.item_photo}
                   alt="books"
                   className="rounded-xl w-[240px] h-[240px]"
                 />
               </figure>
-              <div className=" w-1/2 justify-center ">
+              <div className=" w-full px-7 md:w-1/2 justify-center ">
             <div className="flex flex-row justify-end">
             <button className="rounded-full text-[#328EFF] font-medium bg-[#328EFF26] px-2 md:px-5 py-3 md:mx-5 my-3 ">
                  {craft.stockStatus}
@@ -112,7 +112,7 @@ const MyCrafts = () => {
                   }
                   </p>
                 <hr></hr>
-                <div className="flex flex-col md:flex-row justify-start gap-2 md:gap-4 ">
+                <div className="flex flex-row justify-start gap-2 md:gap-4 ">
                   <button className="rounded-2xl text-[#328EFF] font-base bg-[#328EFF26] md:py-2 md:px-3 py-1 px-2 md:mr-5 my-3">
                     Price: {craft.item_price} tk
                   </button>
@@ -120,7 +120,7 @@ const MyCrafts = () => {
                     Rating: {craft.item_rating}
                   </button>
                 </div>
-                <div className="flex flex-col md:flex-row gap-4 mb-4">
+                <div className="flex flex-row gap-4 mb-4">
                     <button className="btn btn-accent text-white "><Link to={`/update-craft/${craft._id}`}>Update</Link></button>
                     <button onClick={()=>handleDelete(craft._id)} className="btn btn-error text-white">Delete</button>
                 </div>
