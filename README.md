@@ -23,5 +23,14 @@ ArtNest is  a vibrant online platform dedicated to the celebration and sharing o
 ## Server Side Github Link
 https://github.com/preetu10/artnest-server
 
+## Used Tools
+
+- React JS
+- Tailwind CSS
+- Express
+- Firebase
+- MongoDB
+  
+
 ## Live Site Link
 - https://art-nest-c931b.web.app/
